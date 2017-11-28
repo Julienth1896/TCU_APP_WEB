@@ -1,0 +1,21 @@
+{% extends "CELiceoParaisoBundle::visitor_view.html.twig" %}
+{% block submenu %}
+    <a href="#" class="list-group-item">Reseña</a>
+    <a href="#" class="list-group-item">Departamentos</a>
+    <a href="#" class="list-group-item">Servicios</a>
+    <a href="#" class="list-group-item">Personal</a>
+    <a href="#" class="list-group-item">Noticias</a>
+{% endblock %}
+
+{% block content %}
+    <h1 id="title">Área {{area.getNombre()}}</h1><hr>
+    <div id="content">
+        <blockquote><p class="text-justify">{{area.getDescripcion()}}</p></blockquote>
+    </div>
+{% endblock %}
+
+{% block scripts %} 
+    <script type="text/javascript">
+        
+    </script>
+{% endblock %}

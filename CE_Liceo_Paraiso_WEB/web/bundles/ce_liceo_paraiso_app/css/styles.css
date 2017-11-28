@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+/* Remove the jumbotron's default bottom margin */ 
+.jumbotron {
+    margin-bottom: 0;
+    background: url("../img/fondo.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: white;
+}
+
+.titulo {
+    color:#004683;
+}
+
+.subtitulo {
+    color: #204C6F;
+    font-weight: bold;
+}
+
+.member_name > h5 {
+    margin: 0;
+}
+.member_name {
+    border: 1px solid hsl(0, 0%, 80%);
+    padding: 25px 0;
+    text-align: center;
+}
+.member_name > h5 {
+    color: #204C6F;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 27px;
+}
+.member_name > p {
+    color: hsl(42, 93%, 51%);
+    font-weight: 600;
+    line-height: 25px;
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 550px}
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .row.content {height:auto;} 
+    
+    .member_img {  margin: 0 auto;  text-align: center;  width: 77%; }
+    .member_name {  margin: 0 auto;   width: 77%;}
+    .member_detail {  margin: 0 0 30px;}
+}
+
+@media (min-width:768px) and (max-width:992px){
+    .member_detail {  margin: 0 0 30px;}
+    .member_detail {  float: left;  margin: 0 10px 30px;  width: 46%;}
+}
+

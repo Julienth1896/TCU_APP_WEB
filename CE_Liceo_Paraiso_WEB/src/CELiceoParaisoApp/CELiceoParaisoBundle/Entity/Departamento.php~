@@ -1,0 +1,79 @@
+<?php
+
+namespace CELiceoParaisoApp\CELiceoParaisoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Departamento
+ *
+ * @ORM\Table(name="departamento", indexes={@ORM\Index(name="administrador", columns={"administrador"})})
+ * @ORM\Entity
+ */
+class Departamento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=5000, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Administrador
+     *
+     * @ORM\ManyToOne(targetEntity="Administrador")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="administrador", referencedColumnName="codigo")
+     * })
+     */
+    private $administrador;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Area", mappedBy="departamento")
+     */
+    private $area;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Personal", inversedBy="codigoDepartamento")
+     * @ORM\JoinTable(name="personal_departamento",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="codigo_departamento", referencedColumnName="codigo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="codigo_personal", referencedColumnName="codigo")
+     *   }
+     * )
+     */
+    private $codigoPersonal;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->area = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codigoPersonal = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
